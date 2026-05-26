@@ -22,7 +22,8 @@ Then follow the standard Webwright workflow:
    inspect UI state.
 3. Author and run an instrumented `final_script.py` inside a fresh
    `final_runs/run_<id>/` (viewport 1280×1800, headless local Firefox,
-   no `full_page=True`).
+   no `full_page=True`). Always execute Python commands through
+   `source /root/.hermes/hermes-agent/venv/bin/activate && python ...`.
 4. Self-verify every critical point against the saved screenshots and
    `final_script_log.txt`. Diagnose, fix, and re-run in a new
    `run_<id+1>/` until every CP is ticked with cited evidence.

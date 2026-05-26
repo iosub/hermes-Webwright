@@ -41,8 +41,8 @@ Steps:
      saved into the run folder.
 
 4. **Reproduce the task with no arguments.** Run
-   `python final_runs/run_<id>/final_script.py` and confirm it succeeds
-   end-to-end.
+   `source /root/.hermes/hermes-agent/venv/bin/activate && python final_runs/run_<id>/final_script.py`
+   and confirm it succeeds end-to-end.
 
 5. **Import-safety smoke test.** Load the module in a separate Python
    process and confirm no browser is launched and the reusable function
@@ -54,9 +54,9 @@ Steps:
    `final_runs/run_<id+1>/`, and re-verify.
 
 7. **Show the user `--help`.** End by running
-   `python final_runs/run_<id>/final_script.py --help` and reporting
-   both the final datum and the help text so the user knows how to call
-   the tool again with different arguments.
+   `source /root/.hermes/hermes-agent/venv/bin/activate && python final_runs/run_<id>/final_script.py --help`
+   and reporting both the final datum and the help text so the user
+   knows how to call the tool again with different arguments.
 
 Refer to `reference/cli_tool_mode.md` for the complete contract and
 `reference/playwright_patterns.md` for the Playwright skeleton.

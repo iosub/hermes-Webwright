@@ -134,7 +134,7 @@ ticked with cited screenshot/log evidence), CLI mode requires:
    `final_runs/run_<id>/`:
 
    ```bash
-   cd final_runs/run_<id> && python final_script.py
+   cd final_runs/run_<id> && source /root/.hermes/hermes-agent/venv/bin/activate && python final_script.py
    ```
 
    The run must succeed end-to-end and produce the expected screenshots
@@ -143,7 +143,7 @@ ticked with cited screenshot/log evidence), CLI mode requires:
 2. **Import-safety smoke test.** From any other directory:
 
    ```bash
-   python -c "import importlib.util, pathlib; \
+   source /root/.hermes/hermes-agent/venv/bin/activate && python -c "import importlib.util, pathlib; \
      spec = importlib.util.spec_from_file_location('fs', 'final_runs/run_<id>/final_script.py'); \
      m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); \
      print([n for n in dir(m) if not n.startswith('_')])"
@@ -161,7 +161,7 @@ ticked with cited screenshot/log evidence), CLI mode requires:
 4. **Print `--help`.** End by showing the user:
 
    ```bash
-   python final_runs/run_<id>/final_script.py --help
+   source /root/.hermes/hermes-agent/venv/bin/activate && python final_runs/run_<id>/final_script.py --help
    ```
 
 ## Completion gate (CLI mode)
@@ -176,7 +176,7 @@ Set the task complete only when **all** are true:
    an argparse `--flag` whose default equals the concrete task value.
 4. The script is import-safe (smoke test passes).
 5. `python final_script.py` (no args) inside `final_runs/run_<id>/`
-   reproduced the task; all CPs verified against saved screenshots and
+   reproduced the task through the Hermes venv; all CPs verified against saved screenshots and
    the action log.
 6. `step 0 params: ...` line is present in `final_script_log.txt`.
 7. The user has seen the final datum **and** the `--help` output so they

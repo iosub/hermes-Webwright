@@ -1,5 +1,5 @@
 # Webwright
-
+source ~/.hermes/hermes-agent/venv/bin/activate
 <p align="center">
   <img src="assets/webwright_logo.svg" alt="Webwright logo" width="320">
 </p>
@@ -164,6 +164,12 @@ python assets/task_showcase/app.py \
 ## 🚀 Quick Start
 
 ### Prerequisites
+source ~/.hermes/hermes-agent/venv/bin/activate
+ln -sfn ~/hermes-Webwright/skills/webwright ~/.hermes/skills/webwright
+ln -sfn ~/hermes-Webwright/skills/webwright ~/.hermes/skills/webwright
+ln -sfn ~/hermes-Webwright/skills/webwright ~/.hermes/profiles/alex/skills/webwright
+ln -sfn ~/hermes-Webwright/skills/webwright ~/.hermes/profiles/leire/skills/webwright
+ln -sfn ~/hermes-Webwright/skills/webwright ~/.hermes/profiles/iosuwp/skills/webwright
 
 - Python 3.10+
 - Chromium installed through Playwright
@@ -172,6 +178,7 @@ python assets/task_showcase/app.py \
 ### Install
 
 ```bash
+source ~/.hermes/hermes-agent/venv/bin/activate
 pip install -e .
 playwright install chromium
 ```
@@ -181,6 +188,7 @@ playwright install chromium
 Export credentials for the chosen backend (e.g. `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`), then:
 
 ```bash
+source ~/.hermes/hermes-agent/venv/bin/activate
 python -m webwright.run.cli \
     -c base.yaml -c model_openai.yaml \
     -t "Search for flights from SEA to JFK on 2026-08-15 to 2026-08-20" \
@@ -208,6 +216,7 @@ Webwright ships plugin manifests for both [Claude Code](https://docs.claude.com/
 Common runtime deps (install once after either path):
 
 ```bash
+source ~/.hermes/hermes-agent/venv/bin/activate
 pip install -e .
 playwright install chromium
 ```
@@ -327,6 +336,8 @@ To uninstall: `openclaw plugins uninstall webwright`.
 ```bash
 mkdir -p ~/.hermes/skills
 ln -sfn /absolute/path/to/Webwright/skills/webwright ~/.hermes/skills/webwright
+source ~/.hermes/hermes-agent/venv/bin/activate
+playwright install firefox
 ```
 
 No Hermes-specific manifest is needed; only `SKILL.md` is loaded.

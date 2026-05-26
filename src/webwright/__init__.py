@@ -27,6 +27,8 @@ global_config_dir = Path(
 global_config_dir.mkdir(parents=True, exist_ok=True)
 global_config_file = global_config_dir / ".env"
 dotenv.load_dotenv(dotenv_path=global_config_file)
+package_config_file = package_dir / ".env"
+dotenv.load_dotenv(dotenv_path=package_config_file)
 
 
 class Model(Protocol):
@@ -77,5 +79,6 @@ __all__ = [
     "__version__",
     "global_config_dir",
     "global_config_file",
+    "package_config_file",
     "package_dir",
 ]

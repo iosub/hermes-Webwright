@@ -37,10 +37,25 @@ own native abilities**: you read PNGs with `Read` and verify success against
 From the Webwright repo root:
 
 ```bash
+source /root/.hermes/hermes-agent/venv/bin/activate
 playwright install firefox
 ```
 
 No API keys needed for this skill.
+
+## Python Environment
+
+- When generating or running Python / Playwright commands inside Hermes,
+  always use the existing Hermes virtual environment at
+  `/root/.hermes/hermes-agent/venv`.
+- Prefix Python heredocs and script executions with:
+
+  ```bash
+  source /root/.hermes/hermes-agent/venv/bin/activate &&
+  ```
+
+- Do not rely on the system `python`, `python3`, `pip`, or an auto-detected
+  environment.
 
 ## Workspace Contract
 

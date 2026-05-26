@@ -12,8 +12,11 @@ Chromium with `ERR_HTTP2_PROTOCOL_ERROR` due to TLS/H2 fingerprinting, but
 load cleanly under Firefox. Run `playwright install firefox` once before
 the first task.
 
+When running under Hermes, always activate the existing Hermes virtual
+environment first instead of relying on the system Python.
+
 ```bash
-python - <<'PY'
+source /root/.hermes/hermes-agent/venv/bin/activate && python - <<'PY'
 import asyncio
 import os
 from pathlib import Path
@@ -174,6 +177,9 @@ cat final_runs/run_<id>/final_script_log.txt
 
 # Quick file read
 sed -n '1,220p' final_runs/run_<id>/final_script.py
+
+# Run the final script with the Hermes venv
+source /root/.hermes/hermes-agent/venv/bin/activate && python final_runs/run_<id>/final_script.py
 ```
 
 For visual checks, use the `Read` tool on individual PNG files inside
